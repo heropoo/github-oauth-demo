@@ -1,2 +1,2 @@
-# github-oauthp-demo
-github-oauthp-demo
+# github-oauth-demo
+github-oauth-demo
