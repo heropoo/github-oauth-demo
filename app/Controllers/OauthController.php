@@ -29,11 +29,15 @@ class OauthController extends Controller
             $response = $client->get('https://api.github.com/user', [
                 'headers'=>[
                     'Accept'=>'application/json',
-                    'Authorization'=> 'token '.$res['access_token']
+                    'Authorization'=> 'Bearer '.$res['access_token']
                 ]
             ]);
 
             $res = $response->getBody()->getContents();
+            $res = json_decode($res, 1);
+
+            echo '<h3>'.$res['login'].'</h3>';
+            echo '<img src="'.$res['avatar_url'].'" width="100">';
             dd($res);
         }
     }
