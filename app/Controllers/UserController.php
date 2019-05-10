@@ -14,7 +14,9 @@ class UserController extends Controller
 {
     public function login(){
         //return 'login';
-        return $this->render('login');
+        $login_url = 'https://github.com/login/oauth/authorize?client_id='.config('oauth.client_id')
+            .'&redirect_uri=http://localhost/github/github-oauth-demo/public/oauth/redirect';
+        return $this->render('login', ['login_url'=>$login_url]);
     }
 
     public function post_login(){

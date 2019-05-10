@@ -20,7 +20,7 @@ $router = Moon::$app->get('router');
 $router->get('/', 'IndexController::index');
 $router->get('test', 'TestController::index');
 $router->get('test/db', 'TestController::db');
-
+// todo 全局中间件
 $router->group(['middleware'=>'App\Middleware\SessionStart'], function ($router){
     /**
      * @var \Moon\Routing\Router $router
@@ -31,7 +31,7 @@ $router->group(['middleware'=>'App\Middleware\SessionStart'], function ($router)
     $router->post('login', 'UserController::post_login');
     $router->get('logout', 'UserController::logout');
 
-    $router->any('oauth/redirect', 'OauthController@redirect');
+    $router->any('oauth/redirect', 'OauthController::redirect');
 
     $router->group(['middleware'=>'App\Middleware\Auth'], function ($router){
         /**
