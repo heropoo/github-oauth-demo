@@ -31,6 +31,8 @@ $router->group(['middleware'=>'App\Middleware\SessionStart'], function ($router)
     $router->post('login', 'UserController::post_login');
     $router->get('logout', 'UserController::logout');
 
+    $router->any('oauth/redirect', 'OauthController@redirect');
+
     $router->group(['middleware'=>'App\Middleware\Auth'], function ($router){
         /**
          * @var \Moon\Routing\Router $router
